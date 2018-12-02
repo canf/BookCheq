@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'bootstrap'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -34,6 +35,7 @@ gem 'devise', '~> 4.5'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'bulma-rails'
+gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
