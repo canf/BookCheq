@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = curent_user.books.build
+    @book = current_user.books.build
   end
 
   # GET /books/1/edit
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = curent_user.books.build(book_params)
+    @book = current_user.books.build(book_params)
 
     respond_to do |format|
       if @book.save
@@ -67,10 +67,10 @@ class BooksController < ApplicationController
     type = params[:type]
 
     if type == "add"
-      curent_user.library_additions << @book
+      current_user.library_additions << @book
       redirect_to library_index_path, notice:"#{@book.title} was added to your library"
     elsif type == "remove"
-      curent_user.library_additions.delete(@book)
+      current_user.library_additions.delete(@book)
       redirect_to root_path, notice: "#{@book.title} was removed from your library"
     else
       #type is missing, nothing happens
@@ -87,6 +87,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :description, :author, :user_id)
+      params.require(:book).permit(:title, :description, :author, :user_id, :thumbnail)
     end
 end
