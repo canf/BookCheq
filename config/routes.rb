@@ -1,7 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  post 'images' => 'images#create'
 
+  get 'images/index'
+  get 'images/new'
+  get 'images/show'
   resources :books do
     member do
       put "add", to: "books#library"

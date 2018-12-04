@@ -1,18 +1,25 @@
+
 <section class="hero">
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title">
-        <i class="fa fa-book"></i> Book Delivery
+        <i class="fa fa-book"></i> Books available
       </h1>
       <h2 class="subtitle">
-        Check out some of the latest titles
+        Choose your favorite
       </h2>
     </div>
   </div>
 </section>
 
-<section class="section">
+<div class="row">
+<div class="column">
+
+<div class="section">
   <div class="book-grid">
     <%= render @books %>
+    <% if @book %>
+    <%= link_to (image_tag @book.image.url(:thumb)), book_path(@book) %>
+    <% end %>
   </div>
-</section>
+</div>

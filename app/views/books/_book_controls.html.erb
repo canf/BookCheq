@@ -1,6 +1,7 @@
 <% if subscribed? %>
 
  <% if user_added_to_library?(current_user, book) %>
+ <%= image_tag @book.image.url %>
 
    <%= link_to 'Remove from library', add_book_path(book, type: "remove"), method: :put, class: "button is-danger is-fullwidth" %>
 
