@@ -11,6 +11,9 @@ gem 'bootstrap'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'execjs', '~> 2.7'
+gem 'compass', '~> 1.0', '>= 1.0.3'
+gem 'compass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -33,10 +36,11 @@ gem 'railties', '~> 5.0', '>= 5.0.0.1'
 gem 'stripe', '~> 4.2'
 gem 'devise', '~> 4.5'
 gem 'sidekiq'
-gem 'simple_form'
+gem 'simple_form', '~> 4.1'
 gem 'bulma-rails'
 gem 'jquery-rails'
 gem 'paperclip'
+gem 'acts-as-taggable-on', '~> 6.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

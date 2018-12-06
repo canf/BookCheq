@@ -1,15 +1,14 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title">
+      <h4 class="title">
         <i class="fa fa-book"></i> <%= current_user.name %>My Library
-      </h1>
+      </h4>
       <h2 class="subtitle">
         Download or manage your chosen titles below
       </h2>
     </div>
   </div>
-</section>
 
   <% if @library_books.exists? %>
     <div class="book-grid">

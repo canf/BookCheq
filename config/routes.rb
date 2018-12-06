@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get 'images/show'
   resources :books do
     member do
+      get 'tags/:tag',to: "books#index"
+
       put "add", to: "books#library"
       put "remove", to: "books#library"
+      put "show", to: "books#show"
     end
   end
   resources :library, only:[:index]

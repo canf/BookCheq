@@ -41,31 +41,11 @@
   </div>
 
 
-
   <%= f.button :submit, class:"button is-dark" %>
   <% end %>
 
   <%= form_for book do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
 
-  <div>
-    <%= f.label :author %>
-    <%= f.text_field :author %>
-  </div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-  <%= f.submit %>
 <% end %>
 <%= render 'shared/errors', object: book %>

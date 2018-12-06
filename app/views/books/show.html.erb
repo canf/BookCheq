@@ -5,12 +5,14 @@
     <%= image_tag @book.image.url %>
   </div>
     <div class="column">
-      <h1 class="title is-2"><%= @book.title %></h1> by <h2 class="title is=3"><%= @book.author %></h2>
-
+      <h1 class="title is-2"><%= @book.title %></h1>
+       <h2 class="title is=3"><%= @book.author %></h2>
+      
         <div class="content">
-          <p><strong>Description:</strong></p>
           <%= @book.description %>
         </div>
+        <%= link_to 'Back', root_path(@book) %>
+
 
       <% if admin? %>
         <%= link_to 'Edit', edit_book_path(@book) %> |

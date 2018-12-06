@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+  
   end
 
   # GET /books/new
@@ -88,4 +89,6 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :description, :author, :user_id, :image)
     end
+
+
 end
