@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :opinions
   post 'images' => 'images#create'
+  get 'tags/:tag', to: 'books#index', as: :tag
 
   get 'images/index'
   get 'images/new'

@@ -4,6 +4,12 @@
       <h1>
     <%= image_tag @book.image.url %>
 
+    <div id="tag_cloud">
+      <% tag_cloud Book.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+
 
   </div>
     <div class="column">
@@ -13,18 +19,17 @@
         <div class="content">
           <%= @book.description %>
         </div>
-
+<div class="comments">
         <%= render partial: 'coms/form' %>
-
         <%= link_to 'Back', root_path(@book) %>
-
-
       <% if admin? %>
         <%= link_to 'Edit', edit_book_path(@book) %> |
       <% end %>
+
+
       <h3>Comments (<%= @book.coms.size %>)</h3>
       <%= render partial: 'books/com', collection: @book.coms.reverse %>
       </div>
+      </div>
+        </div>
     </div>
-
-</div>

@@ -5,7 +5,10 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = if params[:tag]
+      Book.tagged_with(params[:tag])
+      else
+      Book.all
   end
 
   # GET /books/1
@@ -13,11 +16,13 @@ class BooksController < ApplicationController
   def show
     @com = Com.new
     @com.book_id = @book.id
+    @book = Book.find(params[:id])
   end
 
   # GET /books/new
   def new
     @book = current_user.books.build
+
   end
 
   # GET /books/1/edit
@@ -88,8 +93,8 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :description, :author, :user_id, :image)
+      params.require(:book).permit(:title, :description, :author, :user_id, :image, :tag_list)
     end
 
-
+end
 end

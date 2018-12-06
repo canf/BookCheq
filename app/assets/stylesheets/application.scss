@@ -11,6 +11,15 @@
   padding: 0;
   box-sizing: border-box; }
 
+  #tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+
 html {
   color: #01161e;
   font-family: "Raleway", sans-serif; }
