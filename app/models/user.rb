@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
     has_many :libraries
     has_many :library_additions, through: :libraries, source: :book
 
-
-
 def subscribed?
   stripe_subscription_id?
 end

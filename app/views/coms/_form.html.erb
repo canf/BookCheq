@@ -1,0 +1,16 @@
+<h1>Post a comment</h1>
+
+
+<%= simple_form_for [ @book, @com ] do |f| %>
+<p>
+  <%= f.label :user_id, "Your Name"%><br/>
+  <%= f.text_field :user_id %>
+  </p>
+<p>
+  <%= f.label :body, "Comment this book"%><br/>
+     <%= f.text_area :body %>
+   </p>
+   <p>
+     <%= f.button :submit, class:"button is-dark" %>
+   </p>
+ <% end %>

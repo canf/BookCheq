@@ -305,6 +305,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (~> 5.2, >= 5.2.2)
   acts-as-taggable-on (~> 6.0)
   better_errors
   bootsnap (>= 1.1.0)

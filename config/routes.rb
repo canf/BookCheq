@@ -1,12 +1,14 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :opinions
   post 'images' => 'images#create'
 
   get 'images/index'
   get 'images/new'
   get 'images/show'
   resources :books do
+    resources :coms
     member do
       get 'tags/:tag',to: "books#index"
 

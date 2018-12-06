@@ -1,6 +1,3 @@
-
-
-
 class Book < ApplicationRecord
   has_attached_file :image,
   :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
@@ -11,10 +8,8 @@ class Book < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage/
 
 
-  belongs_to :user
+    belongs_to :user
     has_many :libraries
     has_many :added_books, through: :libraries, source: :user
-
-
-
+    has_many :coms
 end

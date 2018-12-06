@@ -3,20 +3,27 @@
     <div class="column is-4">
       <h1>
     <%= image_tag @book.image.url %>
+
+
   </div>
     <div class="column">
       <h1 class="title is-2"><%= @book.title %></h1>
        <h2 class="title is=3"><%= @book.author %></h2>
-      
+
         <div class="content">
           <%= @book.description %>
         </div>
+
+        <%= render partial: 'coms/form' %>
+
         <%= link_to 'Back', root_path(@book) %>
 
 
       <% if admin? %>
         <%= link_to 'Edit', edit_book_path(@book) %> |
       <% end %>
+      <h3>Comments (<%= @book.coms.size %>)</h3>
+      <%= render partial: 'books/com', collection: @book.coms.reverse %>
       </div>
     </div>
 

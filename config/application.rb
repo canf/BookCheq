@@ -16,6 +16,10 @@ require 'jquery-turbolinks'
 require 'turbolinks'
 require 'compass'
 require 'acts-as-taggable-on'
+
+
+
+
 module BookLibrary
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
