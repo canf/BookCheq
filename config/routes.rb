@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :opinions
   post 'images' => 'images#create'
   get 'tags/:tag', to: 'books#index', as: :tag

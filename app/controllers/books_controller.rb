@@ -32,7 +32,8 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = current_user.books.build(book_params)
+
+   @book = current_user.books.build(book_params)
 
     respond_to do |format|
       if @book.save
@@ -69,6 +70,9 @@ class BooksController < ApplicationController
     end
   end
 
+  def as_json(options = {})
+    super(options.merge(include: [:user, comments: {include: :user}]))
+  end
 #add and remove books from/to library
   def library
     type = params[:type]
@@ -95,6 +99,12 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :description, :author, :user_id, :image, :tag_list)
     end
+
+
+  def com_params
+    params.require(:com).permit(:body, :user_id)
+  end
+
 
 end
 end

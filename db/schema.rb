@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_161819) do
+ActiveRecord::Schema.define(version: 2018_12_08_121008) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_161819) do
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
     t.string "tag_name"
+    t.string "username"
   end
 
   create_table "coms", force: :cascade do |t|
@@ -54,6 +55,8 @@ ActiveRecord::Schema.define(version: 2018_12_06_161819) do
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "user_email"
   end
 
   create_table "images", force: :cascade do |t|
@@ -111,6 +114,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_161819) do
     t.string "subscribed"
     t.string "boolean"
     t.string "name"
+    t.string "user_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,35 +1,42 @@
-<div class="section">
+<div class="section is-light">
   <div class="columns">
-    <div class="column is-4">
+    <div class="column3 is-4">
       <h1>
     <%= image_tag @book.image.url %>
-
-    <div id="tag_cloud">
-      <% tag_cloud Book.tag_counts, %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-      <% end %>
-    </div>
-
-
   </div>
-    <div class="column">
-      <h1 class="title is-2"><%= @book.title %></h1>
+    <div class="column3">
+      <h1 class="title is-1"><%= @book.title %></h1>
        <h2 class="title is=3"><%= @book.author %></h2>
-
         <div class="content">
           <%= @book.description %>
         </div>
-<div class="comments">
-        <%= render partial: 'coms/form' %>
-        <%= link_to 'Back', root_path(@book) %>
-      <% if admin? %>
-        <%= link_to 'Edit', edit_book_path(@book) %> |
-      <% end %>
+
+     <!-- Tags -->   
+        <div id="tag_cloud">
+          <% tag_cloud Book.tag_counts, %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+          <% end %>
+        </div>
 
 
-      <h3>Comments (<%= @book.coms.size %>)</h3>
+          <% if admin? %>
+              <%= link_to 'Edit', edit_book_path(@book) %> |
+                <% end %>
+      </div>
+    </div>
+    </div>
+
+    <!-- Comments -->
+<div class="section">
+    <center>  <h3>Comments (<%= @book.coms.size %>)</h3></center>
       <%= render partial: 'books/com', collection: @book.coms.reverse %>
       </div>
-      </div>
-        </div>
-    </div>
+      <center>
+
+        <% if user_signed_in? %>
+      <%= render partial: 'coms/form' %>
+
+      <% else %>
+      <h1>Only users can comment<br><br></h1>
+      <% end %>
+</center>

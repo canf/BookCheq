@@ -14,6 +14,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'execjs', '~> 2.7'
 gem 'compass', '~> 1.0', '>= 1.0.3'
 gem 'compass-rails'
+gem 'rails_admin'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

@@ -2,17 +2,23 @@
 *= require_tree .
  */
 @import "bulma";
-
-
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:700");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600,700|Short+Stack");
+
+body {
+       background-color: #f2f2f2;
+
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
   #tag_cloud {
-  width: 400px;
+  width: 1000px;
+  padding-bottom: 20px;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
@@ -20,11 +26,37 @@
 }
 
 
+
 html {
   color: #01161e;
   font-family: "Raleway", sans-serif; }
 
-.nav-brand,
+.navbar-start {
+  background-color: #817b84;
+  border-bottom: 8px solid;
+ width: 100vw;
+ position: relative;
+ margin-left: -50vw;
+ height: 50px;
+ left: 50%;
+}
+
+p.navbar-item {
+  
+}
+
+.navbar-item {
+  margin-top: 4px;
+  margin-right: 20px;
+}
+
+p.control {
+margin-bottom: 3px;}
+
+.form {
+  margin-left: 30%;
+  margin-right: 30%;
+}
 .h1 {
   background-color: grey;
   opacity: 0.8;
@@ -32,7 +64,10 @@ html {
 
 }
 
-h2,
+.h2 {
+  font-family: "Short Stack";
+font-size: 20px;
+}
 h3,
 h4 {
   font-family: "Short Stack", cursive; }
@@ -60,14 +95,24 @@ a.btn {
 section {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  padding: 0px 8px 10px 10px; }
+  align-items: center;
+  padding: 0px 8px 10px 10px; 
+}
 
 
   section:not(.hero):nth-child(even) {
     margin-top: 0px;
-    background-color: #f0ffff;
-    color: #d9dbf1; }
+    border: 2px solid;
+    align-items: center;
+    background-color: #ffffff;
+     }
+
+.container2 {
+  margin-top: 0px;
+    border: 2px solid;
+    background-color: #ffffff;
+text-align: center;}
+
 
   section h3.title {
     text-transform: capitalize;
@@ -97,7 +142,11 @@ section {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; }
+  justify-content: center; 
+    border: 2px solid;
+     background-color: #f2f2f2;
+
+}
 
 hr {
   width: 250px;
@@ -125,9 +174,11 @@ header {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  color: #d9dbf1; }
+  color: #8b7493; }
 
   .hero-image {
+      border-bottom: 11px solid;
+
     position: static;
     height: 400px;
     width: 100%;
@@ -186,56 +237,8 @@ header {
     transform: translate(-50%, -50%);
     color: white;
   }
-
-.destinations .grid li {
-  height: 350px;
-  padding: 20px;
-  background-clip: content-box;
-  background-size: cover;
-  background-position: center; }
-
-.destinations .grid li.small {
-  flex-basis: 30%; }
-
-.destinations .grid li.large {
-  flex-basis: 70%; }
-
-.packages .grid li {
-  padding: 50px;
-  flex-basis: 50%;
-  text-align: center; }
-  .packages .grid li i {
-    color: #eca400; }
-  .packages .grid li h4 {
-    font-size: 30px;
-    margin: 25px 0; }
-
-.testimonials .quote {
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1.5;
-  margin: 40px 0 25px; }
-
-.contact form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 60%; }
-
-.contact form .btn {
-  background-color: #eca400;
-  padding: 18px 42px;
-  color: #fefeff; }
-
-.contact form input {
-  padding: 15px;
-  outline: none;
-  border-radius: 3px;
-  margin-right: 30px;
-  font-size: 18px;
-  color: #27476e;
-  flex: 1; }
+.content {
+}
 
 footer {
   display: flex;
@@ -268,7 +271,9 @@ footer {
 
 
 
-
+.simple_form div.input {
+  margin-left: 100px;
+}
 
 
 
@@ -281,10 +286,9 @@ footer {
 }
 
 img {
-  max-width: 80px;
+  max-width: 30px;
 }
 * {
-    box-sizing: border-box;
 }
 
 .row {
@@ -292,7 +296,22 @@ img {
 }
 
 .column {
+  display: flex;
   flex: 50%;
     padding: 30px;
-    border: 1px;
+    border: 2px;
+    align-items: center;
+    margin-left: 33%;
   }
+
+  .column3 {
+    flex: 50%;
+    padding: 10px;
+        border: 2px;
+
+    max-width: 750px;
+    margin-right: 60px;
+  }
+.card-element {
+  width: 100px;
+}

@@ -16,7 +16,7 @@ require 'jquery-turbolinks'
 require 'turbolinks'
 require 'compass'
 require 'acts-as-taggable-on'
-
+require 'rails_admin'
 
 
 

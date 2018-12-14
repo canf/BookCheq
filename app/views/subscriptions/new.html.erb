@@ -1,12 +1,13 @@
 <div class="section">
-  <div class="columns is-centered">
-    <div class="column is-6 border pa5">
+    <div class="column3 is-centered">
       <h1 class="title is-3">Subscribe</h1>
-      <hr />
+  
+              <h3>(You can subscribe later)</h3>
+<br>
       <p>Chosen plan: <strong><%= params[:plan] %>
-      <hr/>
+      <br>
       <%= form_tag subscriptions_path, id: "payment-form" do |form| %>
-
+<br>
         <div class="field">
           <label for="card-element" class="label">Enter credit or debit card</label>
 
@@ -18,10 +19,10 @@
 
           <%= hidden_field_tag :plan_id, params[:plan_id] %>
 
-          <button class="button is-fullwidth is-link mt4">Submit</button>
+          <button class="button is-primary is-link mt4">Submit</button>
         </div>
+
 
       <% end %>
     </div>
-  </div>
 </div>

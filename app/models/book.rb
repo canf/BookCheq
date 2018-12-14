@@ -11,7 +11,7 @@ class Book < ApplicationRecord
     belongs_to :user
     has_many :libraries
     has_many :added_books, through: :libraries, source: :user
-    has_many :coms
+    has_many :coms, :dependent => :destroy
     has_many :taggings
     has_many :tags, through: :taggings
 

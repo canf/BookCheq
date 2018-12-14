@@ -5,14 +5,17 @@
    <div class="comment-main-level">
    <div class="comment-box">
   <div class="comment-head">
-  <h4>Comment by </h4><h2><%= com.user_id%></h2>
-  <span>Posted <%= distance_of_time_in_words(com.book.created_at, com.created_at) %> ago</span>
-  <i class="fa fa-reply"></i>
-<i class="fa fa-heart"></i>
+
+
+    
+  <div class="h2">Posted by <b><%= com.user_email %></b></div>
+
+  <span>Posted <%= com.created_at %></span>
 </div>
 <div class="comment-content"><%= com.body %> </div>
   <% if com.created_at != nil  %>
 <% end %>
+
   </div>
 </div>
 </ul>

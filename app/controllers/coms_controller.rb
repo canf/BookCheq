@@ -6,10 +6,16 @@ class ComsController < ApplicationController
     @com.save
     redirect_to book_path(@com.book)
 
+      end
+
+
+ def as_json(options = {})
+    super(options.merge(include: :user))
   end
 
+
   def com_params
-    params.require(:com).permit(:user_id, :body)
+    params.require(:com).permit(:body, :user_email)
   end
 
 

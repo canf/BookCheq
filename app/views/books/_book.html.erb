@@ -1,32 +1,32 @@
 <div class="book">
   <div class="card">
     <div class="card-image">
-          <figure class="image is-3by4">
+          <figure class="img">
             <%= image_tag book.image.url(:medium) %>
           </figure>
         </div>
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">
+          <p class="title is-5">
             <%= book.title %>
           </p>
           <p class="subtitle is-6"><%= book.author %></p>
         </div>
       </div>
       <div class="button is-small">
-      <%= link_to 'more', book_path(book, type: "show"), method: :put %><br>
-    </div><br>
+      <%= link_to 'more', book_path(book), method: :put %><br>
+    </div>
       <div class="content"><br>
          <% if user_signed_in? %>
 
           <% if user_added_to_library?(current_user, book) %>
 
       <%= link_to 'Remove from library', add_book_path(book, type: "remove"),
-        method: :put, class: "button is-danger" %>
-    <% if controller.controller_name == "library" %>
+        method: :put, class: "button is-small is-danger" %>
+    <% if controller.controller_name == "library" %><br>
             <%= link_to 'Download', '#', class:"button is-success" %>
-          <% end %>
+          <% end %><br>
 
           <% else %>
           <%= link_to 'Add to library', add_book_path(book, type: "add"),
@@ -43,7 +43,7 @@
   <div class="controls pt2">
     <% if admin? %>
       <%= link_to 'Edit', edit_book_path(book), class:"button is-small is-rounded " %>
-      <%= link_to 'Delete', book, method: :delete, data: { confirm: "Are you sure? "},
+      <%= link_to 'delete', book, method: :delete,
          class:"button is-small is-rounded" %>
     <% end %>
   </div>

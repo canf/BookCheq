@@ -25,24 +25,24 @@
     <% end %>
 <div class="hero-image" >
   <section class="hero">
-     <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <div class="navbar-burger burger" data-target="navbar">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+       
+<div class="hero-text">
+  <%= link_to root_path do %>
+  <h1 class="has-text-white">BookCheq</h1>
+      <% end %>
+      <h3> Buy a subscription to unlock all the features </h3>
       </div>
-        <div id="navbar" class="navbar-menu">
-        <div class="navbar-start">
+    </div>
+    <div class="container">
+      <div class="navbar-start is-dark">
+       
+        <div class="navbar-item">
          <% if user_signed_in? %>
-           <div class="navbar-item button has-dropdown is-hoverable is-light">
-             <%= link_to library_index_path, class: 'navbar-item button ' do %><br><br>
-               <i class="fa fa-book"></i> My Library
+             <%= link_to library_index_path, class: 'navbar-item button is-light' do %>
+                My Library
              <% end %>
            </div>
          <% end %>
-       </div>
     <div class="navbar-end">
           <div class="navbar-item">
             <% if admin? %>
@@ -63,40 +63,32 @@
               </div>
             </div>
           <% else %>
-          <p class="control">
-            <%= link_to 'Pricing', pricing_index_path, class: 'navbar-item button is-dark' %>
+          <div class="navbar-item">
+            <%= link_to 'Pricing', pricing_index_path, class: 'navbar-item button is-light' %>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "Sign In", new_user_session_path, class:"navbar-item button is-light" %>
+          </div>
+          <p class="navbar-item">
+            <%= link_to "Sign up", new_user_registration_path, class:"navbar-item button is-light"%>
           </p>
-          <p class="control">
-            <%= link_to "Sign In", new_user_session_path, class:"navbar-item button is-dark" %>
-          </p>
-          <p class="control">
-            <%= link_to "Sign up", new_user_registration_path, class:"navbar-item button is-dark"%>
-          </p>
+
+          
           <% end %>
           </div>
         </div>
       </div>
     </div>
-  </nav>
-<div class="hero-text">
-  <%= link_to root_path do %>
-  <h1 class="has-text-white">BookCheq</h1>
-      <% end %>
-      <h3>Subscribe to read and download all the titles  </h3>
-      </div>
-    </div>
-    <div class="container">
-      <div class="navbar-start">
-       <% if user_signed_in? %>
-         <div class="navbar-item">
-           <h3><%= link_to library_index_path, class: 'navbar-item has-text-white' do %>
-             <i class="fa fa-book"></i> My Library</h3>
-           <% end %>
-         </div>
-       <% end %>
+
+
+
      </div>
       <%= yield %>
     </div>
+    <div class="footer">
+  <p>Anna Młodzik 2018</p>
+</div>
   </body>
+
 
 </html>

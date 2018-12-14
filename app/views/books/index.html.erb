@@ -3,7 +3,13 @@
     <h1 class="title">
       <i class="fa fa-book"></i> Books available
     </h1>
-    <hr>
+    
+    <center>
+      <div id="tag_cloud">
+          <% tag_cloud Book.tag_counts, %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: "button is-dark" %>
+          <% end %>
+        </div> </center>
   </div>
   <div class="book-grid">
     <%= render @books %>
