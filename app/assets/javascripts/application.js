@@ -16,7 +16,8 @@
 
 //= require turbolinks
 //= require_tree .
-
+//= require jquery.raty
+//= require ratyrate
 
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 

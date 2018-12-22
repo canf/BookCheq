@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     has_many :books, dependent: :destroy
     has_many :libraries
     has_many :library_additions, through: :libraries, source: :book
+  letsrate_rater
 
 def subscribed?
   stripe_subscription_id?

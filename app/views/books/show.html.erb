@@ -22,9 +22,24 @@
           <% if admin? %>
               <%= link_to 'Edit', edit_book_path(@book) %> |
                 <% end %>
+
+    </div>
+    
       </div>
+<div class="votes">
+<h1>Score:</h1>
+<%= rating_for @book, "overall" %>
+
+        <% if user_signed_in? %>
+
+<h1>Your score:</h1>
+<%= rating_for_user @book, current_user, "overall", :star => 7 %>
+  <% else %>
+      <h1>Only users can score<br><br></h1>
+      <% end %>
+</div>
     </div>
-    </div>
+
 
     <!-- Comments -->
 <div class="section">
@@ -36,6 +51,9 @@
         <% if user_signed_in? %>
       <%= render partial: 'coms/form' %>
 
+
+
+<hr />
       <% else %>
       <h1>Only users can comment<br><br></h1>
       <% end %>

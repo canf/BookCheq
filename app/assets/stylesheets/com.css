@@ -225,3 +225,122 @@ body {
         width: 320px;
     }
 }
+
+
+
+
+/* It places radio buttons in the left corner of the browser.  */
+
+
+  .rating {
+
+float:left; 
+
+}
+
+ 
+
+/* This will replaces text button with star image  */
+
+ 
+
+    .rating:not(:checked) > input { 
+
+position:absolute;
+
+ top:-9999px;
+
+ clip:rect(0,0,0,0);
+
+ }
+
+ 
+
+ /* It map buttons to Numbers */
+
+ 
+
+  .rating:not(:checked) > label {
+
+float:right; width:1em; padding:0 .1em; 
+
+overflow:hidden; 
+
+white-space:nowrap; 
+
+cursor:pointer; 
+
+font-size:200%; 
+
+line-height:1.2; 
+
+color:#ddd;
+
+ text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+
+ }
+
+
+
+
+
+    
+
+/* Replaces numbers with stars */    
+
+ 
+
+.rating:not(:checked) > label:before {
+
+ content: '★ '; 
+
+}
+
+ 
+
+/* The stars coloured to the color: #f70*/
+
+ 
+
+.rating > input:checked ~ label {
+
+ color: #f70; text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+
+ }
+
+    
+
+/* It shadows the star button to golden colour when you move the curser on star buttons */
+
+ 
+
+   .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
+
+color: gold; 
+
+text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+
+}
+
+    
+
+    .rating > input:checked + label:hover, .rating > input:checked + label:hover ~ label, .rating > input:checked ~ label:hover, .rating > input:checked ~ label:hover ~ label, .rating > label:hover ~ input:checked ~ label {
+
+ color: #ea0; text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+
+}
+
+ 
+
+/* The input is radio button on click to buttton will move cursor to different position will remain stay on the same position */
+
+ 
+
+.rating:not(:checked) > input { 
+
+display: none; 
+
+}
+
+ 
+

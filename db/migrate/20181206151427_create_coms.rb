@@ -4,7 +4,7 @@ class CreateComs < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.text :body
       t.integer :book_id
-
+      t.string :rating
       t.timestamps
     end
   end

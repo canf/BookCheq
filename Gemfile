@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
 gem 'bootstrap'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -43,6 +44,8 @@ gem 'sidekiq'
 gem 'simple_form', '~> 4.1'
 gem 'bulma-rails'
 gem 'jquery-rails'
+gem 'letsrate'
+
 gem 'paperclip'
 gem 'acts-as-taggable-on', '~> 6.0'
 # Use Capistrano for deployment
