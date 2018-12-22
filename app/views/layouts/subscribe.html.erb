@@ -15,9 +15,50 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
-
 </head>
 
+
+<nav class="navbar is-primary">
+      <div class="container">
+        <div class="navbar-brand">
+         
+          <span class="navbar-burger burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="<%= root_path %>" class="navbar-item is-active">Home</a>
+            
+        <% if user_signed_in? %>
+       <a href="<%= library_index_path %>" class="navbar-item">My Library</a>
+       <a href="<%= edit_user_registration_path %>" class="navbar-item">Edit Profile</a>
+       <a href="<%= destroy_user_session_path %>" class="navbar-item">Log Out</a>
+          <% else %>
+   <a href="<%= pricing_index_path %>" class="navbar-item">Pricing</a>
+   <a href="<%= new_user_registration_path %>" class="navbar-item">Sign Up</a>          
+    <a href="<%= new_user_session_path %>" class="navbar-item">Log In</a>
+    <% end %>
+          </div>
+        </div>
+
+        <% if admin? %>
+          <a href="<%= new_book_path %>" class="navbar-item">New Book</a>
+          <% end %>
+      </div>
+    </nav>
+    <script type="text/javascript">
+      (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#'+burger.dataset.target);
+        burger.addEventListener('click', function(){
+          burger.classList.toggle('is-active');
+          nav.classList.toggle('is-active');
+        });
+      })();
+    </script>
   <body class="<%= yield (:body_class) %>">
     <% if flash[:notice] %>
       <div class="notification is-success global-notification">
@@ -32,11 +73,6 @@
     <% end %>
 
     <br>
-
-    <%= link_to root_path do %>
-      <h1 class="title is-5l"><i class="fas fa-angle-left">     </i> Back</h1>
-    <% end  %>
-
 
     <div class="container">
       <%= yield %>

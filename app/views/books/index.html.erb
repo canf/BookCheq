@@ -16,20 +16,5 @@
     <% if @book %>
     <%= link_to (image_tag @book.image.url(:thumb)), book_path(@book) %>
     <% end %>
-<!---
-<div id="tag_cloud">
-  <% tag_cloud Book.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
 
-<div id="books">
-  <% @books.each do |book| %>
-    <h2><%= link_to book.id, book %></h2>    <p>
-      Tags: <%= raw book.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-    </p>
-  <% end %>
-</div>
-
---->
   </div>

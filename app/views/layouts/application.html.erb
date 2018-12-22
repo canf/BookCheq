@@ -9,7 +9,9 @@
     <%= tag :meta, name: "stripe-key", content: Rails.application.secrets.publishable_key %>
     <%= javascript_include_tag "jquery-star-rating" %>
 <%= stylesheet_link_tag "jquery-star-rating" %> 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -26,66 +28,64 @@
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>
+
+    <!-- HERO -->   
 <div class="hero-image" >
-  <section class="hero">
-       
+  <section class="hero">     
 <div class="hero-text">
   <%= link_to root_path do %>
   <h1 class="has-text-white">BookCheq</h1>
       <% end %>
-      <h3> Buy a subscription to unlock all the features </h3>
+      <h3> Buy a subscription to unlock all the features  
+       <a href="<%= pricing_index_path %>" class="button is-button">Pricing</a>
+ </h3>
+
       </div>
     </div>
-    <div class="container">
-      <div class="navbar-start is-dark">
-       
-        <div class="navbar-item">
-         <% if user_signed_in? %>
-             <%= link_to library_index_path, class: 'navbar-item button is-light' do %>
-                My Library
-             <% end %>
-           </div>
-         <% end %>
-    <div class="navbar-end">
-          <div class="navbar-item">
-            <% if admin? %>
-              <%= link_to 'New Book', new_book_path, class:'button is-dark' %>
-            <% end %>
-            <div class="field is-grouped">
-            <% if user_signed_in? %>
+<!-- NAVBAR -->
 
-    <div class="navbar-item button has-dropdown is-hoverable is-light">
-              <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
-              <div class="navbar-dropdown is-right">
-                <%= link_to edit_user_registration_path, class:"navbar-item" do %>
-                  <%= current_user.name %>Edit profile
-                  <% if admin? %> &nbsp;
-                  <span class="tag is-warning">ADMIN</span> <% end %>
-                <% end %>
-                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"navbar-item" %>
-              </div>
-            </div>
+<nav class="navbar is-primary">
+      <div class="container">
+        <div class="navbar-brand">
+         
+          <span class="navbar-burger burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="<%= root_path %>" class="navbar-item">Home</a>
+            
+        <% if user_signed_in? %>
+       <a href="<%= library_index_path %>" class="navbar-item">My Library</a>
+       <a href="<%= edit_user_registration_path %>" class="navbar-item">Edit Profile</a>
+       <a href="<%= destroy_user_session_path %>" class="navbar-item">Log Out</a>
           <% else %>
-          <div class="navbar-item">
-            <%= link_to 'Pricing', pricing_index_path, class: 'navbar-item button is-light' %>
-          </div>
-          <div class="navbar-item">
-            <%= link_to "Sign In", new_user_session_path, class:"navbar-item button is-light" %>
-          </div>
-          <p class="navbar-item">
-            <%= link_to "Sign up", new_user_registration_path, class:"navbar-item button is-light"%>
-          </p>
-
-          
-          <% end %>
+   <a href="<%= pricing_index_path %>" class="navbar-item">Pricing</a>
+   <a href="<%= new_user_registration_path %>" class="navbar-item">Sign Up</a>          
+    <a href="<%= new_user_session_path %>" class="navbar-item">Log In</a>
+    <% end %>
           </div>
         </div>
+
+        <% if admin? %>
+          <a href="<%= new_book_path %>" class="navbar-item">New Book</a>
+          <% end %>
       </div>
-    </div>
+    </nav>
+    <script type="text/javascript">
+      (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#'+burger.dataset.target);
+        burger.addEventListener('click', function(){
+          burger.classList.toggle('is-active');
+          nav.classList.toggle('is-active');
+        });
+      })();
+    </script>
 
-
-
-     </div>
       <%= yield %>
     </div>
     <div class="footer">
