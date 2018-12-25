@@ -1,10 +1,10 @@
 <div class="book">
   <div class="card">
     <div class="card-image">
-          <figure class="img">
-            <%= image_tag book.image.url(:medium) %>
-          </figure>
-        </div>
+      <figure class="img">
+        <%= image_tag book.image.url(:medium) %>
+      </figure>
+    </div>
     <div class="card-content">
       <div class="media">
         <div class="media-content">
@@ -15,36 +15,36 @@
         </div>
       </div>
       <div class="button is-small">
-      <%= link_to 'more', book_path(book) %><br>
-    </div>
-      <div class="content"><br>
-         <% if user_signed_in? %>
-
-          <% if user_added_to_library?(current_user, book) %>
-
-      <%= link_to 'Remove from library', add_book_path(book, type: "remove"),
-        method: :put, class: "button is-small is-danger" %>
-    <% if controller.controller_name == "library" %><br>
-            <%= link_to 'Download', '#', class:"button is-success" %>
-          <% end %><br>
-
-          <% else %>
-          <%= link_to 'Add to library', add_book_path(book, type: "add"),
-            method: :put, class: "button is-primary" %>
-          <% end %>
-
-        <% else %>
-        <%= link_to 'Add to library', new_user_registration_path,
-          class: "button is-primary is-fullwidth" %>
-          <% end %>
+        <%= link_to 'more', book_path(book) %>
       </div>
-    </div>
-  </div>
-  <div class="controls pt2">
-    <% if admin? %>
-      <%= link_to 'Edit', edit_book_path(book), class:"button is-small is-rounded " %>
-      <%= link_to 'delete', book, method: :delete,
-         class:"button is-small is-rounded" %>
-    <% end %>
-  </div>
+      <div class="content">
+       <% if user_signed_in? %>
+
+       <% if user_added_to_library?(current_user, book) %>
+
+       <%= link_to 'Remove from library', add_book_path(book, type: "remove"),
+       method: :put, class: "button is-small is-danger" %>
+       <% if controller.controller_name == "library" %>
+       <%= link_to 'Download', '#', class:"button is-success is-small" %>
+       <% end %>
+
+       <% else %>
+       <%= link_to 'Add to library', add_book_path(book, type: "add"),
+       method: :put, class: "button is-primary" %>
+       <% end %>
+
+       <% else %>
+       <%= link_to 'Add to library', new_user_registration_path,
+       class: "button is-primary is-fullwidth" %>
+       <% end %>
+     </div>
+   </div>
+ </div>
+ <div class="controls pt2">
+  <% if admin? %>
+  <%= link_to 'Edit', edit_book_path(book), class:"button is-small is-rounded " %>
+  <%= link_to 'delete', book, method: :delete,
+  class:"button is-small is-rounded" %>
+  <% end %>
+</div>
 </div>

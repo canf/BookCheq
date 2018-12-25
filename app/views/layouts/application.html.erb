@@ -1,97 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'https://js.stripe.com/v3/' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' =>  true %>
-    <%= tag :meta, name: "stripe-key", content: Rails.application.secrets.publishable_key %>
-    <%= javascript_include_tag "jquery-star-rating" %>
-<%= stylesheet_link_tag "jquery-star-rating" %> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body class="<%= yield (:body_class) %>">
-    <% if flash[:notice] %>
-      <div class="notification is-success global-notification">
-        <p class="notice"><%= notice %></p>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'https://js.stripe.com/v3/' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' =>  true %>
+  <%= tag :meta, name: "stripe-key", content: Rails.application.secrets.publishable_key %>
+  <%= javascript_include_tag "jquery-star-rating" %>
+  <%= stylesheet_link_tag "jquery-star-rating" %> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+
+</head>
+<body class="<%= yield (:body_class) %>">
+  <% if flash[:notice] %>
+  <div class="notification is-success global-notification">
+    <p class="notice"><%= notice %></p>
+  </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+  <div class="notification is-danger global-notification">
+    <p class="alert"><%= alert %></p>
+  </div>
+  <% end %>
+
+  <!-- HERO -->   
+  <div class="hero-image" >
+    <section class="hero">     
+      <div class="hero-text">
+        <%= link_to root_path do %>
+        <h1 class="has-text-white">BookCheq</h1>
+        <% end %>
+        <h3> Buy a subscription to unlock all the features  
+         <a href="<%= pricing_index_path %>" class="button is-button">Pricing</a>
+       </h3>
+     </div>
+   </div>
+
+   <!-- NAVBAR -->
+
+   <nav class="navbar is-primary">
+    <div class="container">
+      <div class="navbar-brand">
+
+        <span class="navbar-burger burger" data-target="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </div>
-    <% end %>
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a href="<%= root_path %>" class="navbar-item">Home</a>
 
-    <% if flash[:alert] %>
-    <div class="notification is-danger global-notification">
-      <p class="alert"><%= alert %></p>
-    </div>
-    <% end %>
-
-    <!-- HERO -->   
-<div class="hero-image" >
-  <section class="hero">     
-<div class="hero-text">
-  <%= link_to root_path do %>
-  <h1 class="has-text-white">BookCheq</h1>
-      <% end %>
-      <h3> Buy a subscription to unlock all the features  
-       <a href="<%= pricing_index_path %>" class="button is-button">Pricing</a>
- </h3>
-
-      </div>
-    </div>
-<!-- NAVBAR -->
-
-<nav class="navbar is-primary">
-      <div class="container">
-        <div class="navbar-brand">
-         
-          <span class="navbar-burger burger" data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-          <div class="navbar-end">
-            <a href="<%= root_path %>" class="navbar-item">Home</a>
-            
-        <% if user_signed_in? %>
-       <a href="<%= library_index_path %>" class="navbar-item">My Library</a>
-       <a href="<%= edit_user_registration_path %>" class="navbar-item">Edit Profile</a>
-       <a href="<%= destroy_user_session_path %>" class="navbar-item">Log Out</a>
+          <% if user_signed_in? %>
+          <a href="<%= library_index_path %>" class="navbar-item">My Library</a>
+          <a href="<%= edit_user_registration_path %>" class="navbar-item">Edit Profile</a>
+          <a href="<%= destroy_user_session_path %>" class="navbar-item">Log Out</a>
           <% else %>
-   <a href="<%= pricing_index_path %>" class="navbar-item">Pricing</a>
-   <a href="<%= new_user_registration_path %>" class="navbar-item">Sign Up</a>          
-    <a href="<%= new_user_session_path %>" class="navbar-item">Log In</a>
-    <% end %>
-          </div>
-        </div>
-
-        <% if admin? %>
-          <a href="<%= new_book_path %>" class="navbar-item">New Book</a>
+          <a href="<%= pricing_index_path %>" class="navbar-item">Pricing</a>
+          <a href="<%= new_user_registration_path %>" class="navbar-item">Sign Up</a>          
+          <a href="<%= new_user_session_path %>" class="navbar-item">Log In</a>
           <% end %>
+        </div>
       </div>
-    </nav>
-    <script type="text/javascript">
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
-    </script>
 
-      <%= yield %>
+      <% if admin? %>
+      <a href="<%= new_book_path %>" class="navbar-item">New Book</a>
+      <% end %>
     </div>
-    <div class="footer">
+  </nav>
+  <script type="text/javascript">
+    (function() {
+      var burger = document.querySelector('.burger');
+      var nav = document.querySelector('#'+burger.dataset.target);
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+      });
+    })();
+  </script>
+
+  <%= yield %>
+</div>
+<div class="footer">
   <p>Anna Młodzik 2018</p>
 </div>
-  </body>
+</body>
 
 
 </html>

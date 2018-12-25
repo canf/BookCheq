@@ -1,59 +1,50 @@
 <div class="section is-light">
-  <div class="columns">
-    <div class="column3 is-4">
-      <h1>
-    <%= image_tag @book.image.url %>
-  </div>
-    <div class="column3">
-      <h1 class="title is-1"><%= @book.title %></h1>
-       <h2 class="title is=3"><%= @book.author %></h2>
-        <div class="content">
-          <%= @book.description %>
-        </div>
-
-     <!-- Tags -->   
-        <div id="tag_cloud">
-          <% @book.tags.each do |tag| %>
+   <div class="columns">
+      <div class="column3 is-4">
+         <h1>
+         <%= image_tag @book.image.url %>
+      </div>
+      <div class="column3">
+         <h1 class="title is-1"><%= @book.title %></h1>
+         <h2 class="title is=3"><%= @book.author %></h2>
+         <div class="content">
+            <%= @book.description %>
+         </div>
+         <!-- Tags -->   
+         <div id="tag_cloud">
+            <% @book.tags.each do |tag| %>
             <%= link_to tag.name, tag_path(tag.name), class: "button is-dark"%>
             <% end %>
-        </div>
-
-
-          <% if admin? %>
-              <%= link_to 'Edit', edit_book_path(@book), class: "button is-dark is-small" %> 
-                <% end %>
-        </div>
-    
+         </div>
+         <% if admin? %>
+         <%= link_to 'Edit', edit_book_path(@book), class: "button is-dark is-small" %> 
+         <% end %>
       </div>
-<div class="votes">
-<h1>Score:</h1>
-<%= rating_for @book, "overall" %>
+   </div>
 
-        <% if user_signed_in? %>
 
-<h1>Your score:</h1>
-<%= rating_for_user @book, current_user, "overall", :star => 7 %>
-  <% else %>
+     <fieldset class="rating">   
+ 
+      <h1>Score:</h1>
+      <%= rating_for @book, "overall" %>
+      <% if user_signed_in? %>
+      <h1>Your score:</h1>
+      <%= rating_for_user @book, current_user, "overall", :star => 7 %>
+      <% else %>
       <h1>Only users can score<br><br></h1>
       <% end %>
 </div>
-    </div>
-
-
-    <!-- Comments -->
+<!-- Comments -->
 <div class="section">
-    <center>  <h3>Comments (<%= @book.coms.size %>)</h3></center>
-      <%= render partial: 'books/com', collection: @book.coms.reverse %>
-      </div>
-      <center>
+   <center>
+      <h3>Comments (<%= @book.coms.size %>)</h3>
+   </center>
+   <%= render partial: 'books/com', collection: @book.coms.reverse %>
+</div>
 
-        <% if user_signed_in? %>
-      <%= render partial: 'coms/form' %>
-
-
-
-<hr />
-      <% else %>
-      <h1>Only users can comment<br><br></h1>
-      <% end %>
-</center>
+   <% if user_signed_in? %>
+   <%= render partial: 'coms/form' %>
+   <hr />
+   <% else %>
+   <h1>Only users can comment<br><br></h1>
+   <% end %>

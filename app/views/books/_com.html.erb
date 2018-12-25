@@ -1,22 +1,17 @@
-
- <div class="comments-container">
-   <ul id="comments-list" class="comments-list">
-    <li>
-   <div class="comment-main-level">
-   <div class="comment-box">
-  <div class="comment-head">
-
-
-    
-  <div class="h2">Posted by <b><%= com.user_email %></b></div>
-
-  <span>Posted <%= com.created_at %></span>
-</div>
-<div class="comment-content"><%= com.body %> </div>
-  <% if com.created_at != nil  %>
-<% end %>
-
-  </div>
-</div>
-</ul>
-</div>
+<center><div class="comments-container">
+	<ul id="comments-list" class="comments-list">
+		<li>
+			<div class="comment-main-level">
+				<div class="comment-box">
+					<div class="comment-head">						
+						<div class="h3">Posted by <b><%= com.user_email %></b></div>
+						<span>Posted <%= com.created_at %></span>
+					</div>
+					<div class="comment-content"><%= com.body %> </div>
+					<% if com.created_at != nil  %>
+					<% end %>
+				</div>
+			</div>
+		</ul>
+	</div>
+</center>

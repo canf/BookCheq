@@ -17,18 +17,18 @@ Rails.application.routes.draw do
 
       put "add", to: "books#library"
       put "remove", to: "books#library"
-      get "show", to: "books#show"
+      # get "show", to: "books#show"
     end
   end
   resources :library, only:[:index]
   resources :pricing, only:[:index]
 
   devise_for :users, controllers: { registrations: "registrations" }
-    as :user do
-  get '/users/sign_out' => 'devise/sessions#destroy'
+  as :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
 
-  root to: 'books#index'
-  resources :subscriptions
-end
+    root to: 'books#index'
+    resources :subscriptions
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

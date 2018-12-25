@@ -25,17 +25,18 @@ body {
     font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
     background: #dee1e3;
 }
+.comment-form {
+    align-content: center;
+    width: 1000px;
+}
 
-/** ====================
- * Lista de Comentarios
- =======================*/
 .comments-container {
     margin: 60px auto 15px;
     width: 768px;
 }
 
 .comments-container h1 {
-    font-size: 36px;
+    font-size: 26px;
     color: #283035;
     font-weight: 400;
 }
@@ -92,12 +93,6 @@ body {
     height: 0;
     width: 0;
 }
-
-
-/**
- * Avatar
- ---------------------------*/
-
 
 
 .comment-main-level:after {
@@ -226,23 +221,18 @@ body {
     }
 }
 
-
-
-
 /* It places radio buttons in the left corner of the browser.  */
-
 
   .rating {
 
 float:left; 
+display: inline-block;
+max-height: 20px;
 
 }
 
- 
 
 /* This will replaces text button with star image  */
-
- 
 
     .rating:not(:checked) > input { 
 
@@ -254,56 +244,32 @@ position:absolute;
 
  }
 
- 
 
  /* It map buttons to Numbers */
 
- 
-
   .rating:not(:checked) > label {
-
 float:right; width:1em; padding:0 .1em; 
-
 overflow:hidden; 
-
 white-space:nowrap; 
-
 cursor:pointer; 
-
-font-size:200%; 
-
-line-height:1.2; 
-
+line-height:0.2; 
 color:#ddd;
+display: inline-block;
 
  text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
 
  }
 
-
-
-
-
-    
-
-/* Replaces numbers with stars */    
-
- 
+/* Replaces numbers with stars */     
 
 .rating:not(:checked) > label:before {
-
  content: '★ '; 
-
 }
 
- 
 
 /* The stars coloured to the color: #f70*/
 
- 
-
 .rating > input:checked ~ label {
-
  color: #f70; text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
 
  }
