@@ -17,8 +17,7 @@ require 'turbolinks'
 require 'compass'
 require 'acts-as-taggable-on'
 require 'rails_admin'
-require 'letsrate'
-
+require 'pg'
 
 
 module BookLibrary

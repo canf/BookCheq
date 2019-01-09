@@ -7,10 +7,8 @@ class Book < ApplicationRecord
 
   validates_attachment_content_type :image, content_type: /\Aimage/
 
+  belongs_to :user
 
-    letsrate_rateable "autism_friendly", "overall"
-
-    belongs_to :user
     has_many :libraries
     has_many :added_books, through: :libraries, source: :user
     has_many :coms, :dependent => :destroy
@@ -22,8 +20,9 @@ class Book < ApplicationRecord
   end
 
   def self.tag_counts
-    Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
-  end
+    Tag.select("tags.id, tags.name,count(taggings.tag_id) as count").joins(:taggings).group("taggings.tag_id, tags.id, tags.name")
+ end
+
 
   def tag_list
     tags.map(&:name).join(', ')

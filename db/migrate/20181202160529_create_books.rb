@@ -5,8 +5,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :author
       t.integer :user_id
-      remove_foreign_key :books, :users
-      add_foreign_key :books, :users, dependent: :delete
+      add_foreign_key :books, :users
       t.timestamps
     end
   end

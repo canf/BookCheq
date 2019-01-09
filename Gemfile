@@ -25,7 +25,6 @@ gem 'sidekiq'
 gem 'simple_form', '~> 4.1'
 gem 'bulma-rails'
 gem 'jquery-rails'
-gem 'letsrate'
 gem 'paperclip'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bootsnap', '>= 1.1.0', require: false

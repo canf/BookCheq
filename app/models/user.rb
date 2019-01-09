@@ -6,10 +6,14 @@ class User < ActiveRecord::Base
     has_many :books, dependent: :destroy
     has_many :libraries
     has_many :library_additions, through: :libraries, source: :book
+  
+  def connection
   letsrate_rater
+end
 
 def subscribed?
   stripe_subscription_id?
 end
+
 
 end
