@@ -66,6 +66,7 @@ GEM
       sassc (>= 2.0.0)
     builder (3.2.3)
     bulma-rails (0.7.2)
+      sass (~> 3.2)
     byebug (10.0.2)
     capybara (3.12.0)
       addressable
