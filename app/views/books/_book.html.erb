@@ -8,15 +8,15 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-5">
-            <%= book.title %>
+          <p class="title is-5 is-dark">
+            <%= link_to book.title, book_path(book) %>
           </p>
           <p class="subtitle is-6"><%= book.author %></p>
-        </div>
+        </div><br>
       </div>
       <div class="button is-small">
-        <%= link_to 'more', book_path(book) %>
-      </div>
+        <%= link_to 'about', book_path(book) %>
+      </div><br>
       <div class="content">
        <% if user_signed_in? %>
 
@@ -24,9 +24,7 @@
 
        <%= link_to 'Remove from library', add_book_path(book, type: "remove"),
        method: :put, class: "button is-small is-danger" %>
-       <% if controller.controller_name == "library" %>
-       <%= link_to 'Download', '#', class:"button is-success is-small" %>
-       <% end %>
+       
 
        <% else %>
        <%= link_to 'Add to library', add_book_path(book, type: "add"),
