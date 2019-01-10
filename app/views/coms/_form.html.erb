@@ -5,7 +5,7 @@
 <div class="comment-form">
 <b>Post a comment</b><br>
 <%= simple_form_for [@book, @book.coms.build ] do |f| %>
-  <%= f.input :user_email, :label => 'Your email' %>
+  <%= f.input :user_email, :label => 'Your name' %>
   <%= f.input :body, :label => 'Review this book' %>
   <%= f.button :submit, "Post", class:"button is-dark" %>
 <% end %>

@@ -23,16 +23,8 @@
    </div>
 
 
-     <fieldset class="rating">   
- 
-      <h1>Score:</h1>
-      <%= rating_for @book, "overall" %>
-      <% if user_signed_in? %>
-      <h1>Your score:</h1>
-      <%= rating_for_user @book, current_user, "overall", :star => 7 %>
-      <% else %>
-      <h1>Only users can score<br><br></h1>
-      <% end %>
+    
+      
 </div>
 <!-- Comments -->
 <div class="section">

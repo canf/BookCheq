@@ -1,17 +1,18 @@
-<center><div class="comments-container">
+<div class="comments-container">
 	<ul id="comments-list" class="comments-list">
 		<li>
 			<div class="comment-main-level">
 				<div class="comment-box">
 					<div class="comment-head">						
-						<div class="h3">Posted by <b><%= com.user_email %></b></div>
+						<div class="h2"><b><%= com.user_email %></b></div>
 						<span>Posted <%= com.created_at %></span>
 					</div>
+					<h3>
 					<div class="comment-content"><%= com.body %> </div>
 					<% if com.created_at != nil  %>
 					<% end %>
+				</h3>
 				</div>
 			</div>
 		</ul>
 	</div>
-</center>
