@@ -35,6 +35,65 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
+
+
+
+
+/* This is important to make z-indexes work as expexted */
+.carousel-item {
+    -webkit-perspective: initial;
+    perspective: initial;
+}
+
+/* This is to make the image offset */
+.carousel-item img {
+    padding: 1rem;
+}
+
+.carousel-panel,
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+.carousel-panel {
+    background-color: rgba(30,80,110,.334);
+}
+.carousel-overlay {
+    /*
+    Alternatively you could tint this, and 
+    remove the coloring from `.carousel-panel`
+    */
+    /*background-color: rgba(30,80,110,.334);*/
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    align-items: bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .navbar-start {
   background-color: #817b84;
   border-bottom: 8px solid;
