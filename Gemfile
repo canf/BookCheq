@@ -23,7 +23,7 @@ gem 'stripe', '~> 4.2'
 gem 'devise', '~> 4.5'
 gem 'sidekiq'
 
-gem 'simple_form', '~> 4.1'
+gem 'simple_form', '~> 5.0'
 gem 'bulma-rails'
 gem 'jquery-rails'
 gem 'paperclip'
